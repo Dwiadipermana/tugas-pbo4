@@ -1,0 +1,54 @@
+public class VolumeBangunRuang {
+
+    public static double hitungVolume(Kubus kubus) {
+        return kubus.sisi * kubus.sisi * kubus.sisi;
+    }
+
+    public static double hitungVolume(Balok balok) {
+        return balok.panjang * balok.lebar * balok.tinggi;
+    }
+
+    public static double hitungVolume(Tabung tabung) {
+        return Math.PI * tabung.jariJari * tabung.jariJari * tabung.tinggi;
+    }
+
+    public static void main(String[] args) {
+        Kubus kubus = new Kubus(5);
+        Balok balok = new Balok(4, 3, 2);
+        Tabung tabung = new Tabung(7, 10);
+
+        System.out.println("Volume Kubus: " + hitungVolume(kubus));
+        System.out.println("Volume Balok: " + hitungVolume(balok));
+        System.out.println("Volume Tabung: " + hitungVolume(tabung));
+    }
+}
+
+class Kubus {
+    double sisi;
+
+    public Kubus(double sisi) {
+        this.sisi = sisi;
+    }
+}
+
+class Balok {
+    double panjang;
+    double lebar;
+    double tinggi;
+
+    public Balok(double panjang, double lebar, double tinggi) {
+        this.panjang = panjang;
+        this.lebar = lebar;
+        this.tinggi = tinggi;
+    }
+}
+
+class Tabung {
+    double jariJari;
+    double tinggi;
+
+    public Tabung(double jariJari, double tinggi) {
+        this.jariJari = jariJari;
+        this.tinggi = tinggi;
+    }
+}

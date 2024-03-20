@@ -1,0 +1,69 @@
+public abstract class Barang {
+
+    protected String nama;
+    protected double harga;
+
+    public abstract double hitungDiskon();
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public double getHarga() {
+        return harga;
+    }
+
+    public void setHarga(double harga) {
+        this.harga = harga;
+    }
+}
+
+public class BarangElektronik extends Barang {
+
+    private double diskonElektronik;
+
+    public BarangElektronik(String nama, double harga, double diskonElektronik) {
+        super.nama = nama;
+        super.harga = harga;
+        this.diskonElektronik = diskonElektronik;
+    }
+
+    @Override
+    public double hitungDiskon() {
+        return harga * diskonElektronik;
+    }
+}
+
+public class BarangPakaian extends Barang {
+
+    private double diskonPakaian;
+
+    public BarangPakaian(String nama, double harga, double diskonPakaian) {
+        super.nama = nama;
+        super.harga = harga;
+        this.diskonPakaian = diskonPakaian;
+    }
+
+    @Override
+    public double hitungDiskon() {
+        return harga * diskonPakaian;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        BarangElektronik tv = new BarangElektronik("TV", 5000000, 0.1);
+        BarangPakaian baju = new BarangPakaian("Baju", 200000, 0.2);
+
+        System.out.println("Nama Barang Elektronik: " + tv.getNama());
+        System.out.println("Diskon Barang Elektronik: " + tv.hitungDiskon());
+
+        System.out.println("Nama Barang Pakaian: " + baju.getNama());
+        System.out.println("Diskon Barang Pakaian: " + baju.hitungDiskon());
+    }
+}
